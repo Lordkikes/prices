@@ -20,15 +20,34 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
+/* Verifies the behavior of the application when interacting with the REST API.
+        */
 @SpringBootTest
 @AutoConfigureMockMvc
 class InditexApplicationTests {
 
+    /**
+     * Constant representing the product ID used in the tests.
+     */
     private static final int PRODUCT_ID = 35455;
+
+    /**
+     * Constant representing the brand ID used in the tests.
+     */
     private static final int BRAND_ID = 1;
+
+    /**
+     * MockMvc instance for performing HTTP requests in tests.
+     */
     @Autowired
     private MockMvc mockMvc;
 
+    /**
+     * Provides test cases for parameterized tests.
+     * Each test case includes an expected price and an application date.
+     *
+     * @return A stream of arguments containing expected price and application date.
+     */
     static Stream<Arguments> priceTestCases() {
         return Stream.of(
                 arguments(new BigDecimal("35.50"), "2025-06-14T10:00:00.000"),
@@ -39,6 +58,13 @@ class InditexApplicationTests {
         );
     }
 
+    /**
+     * Parameterized test to verify that the correct price is returned for a given application date.
+     *
+     * @param expectedPrice The expected price for the given application date.
+     * @param applicationDate The application date for which the price is queried.
+     * @throws Exception If an error occurs during the test execution.
+     */
     @ParameterizedTest
     @MethodSource("priceTestCases")
     @DisplayName("Should return correct price for given application date")
@@ -56,6 +82,11 @@ class InditexApplicationTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.brandId").value(BRAND_ID));
     }
 
+    /**
+     * Test to verify that a 400 Bad Request status is returned when the brandId parameter is missing.
+     *
+     * @throws Exception If an error occurs during the test execution.
+     */
     @Test
     @DisplayName("Should return 400 Bad Request when brandId parameter is missing")
     void shouldReturnBadRequestWhenBrandIdIsMissing() throws Exception {
@@ -67,6 +98,12 @@ class InditexApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
+    /**
+     * Test to verify that a 404 Not Found status is returned when no price is available
+     * for the given date and product.
+     *
+     * @throws Exception If an error occurs during the test execution.
+     */
     @Test
     @DisplayName("Should return 404 Not Found when no price is available for the given date and product")
     void shouldReturnNotFoundWhenNoPriceIsAvailable() throws Exception {
@@ -80,4 +117,3 @@ class InditexApplicationTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("No price available."));
     }
 }
-
