@@ -146,7 +146,7 @@
                             <skipIfSpecIsUnchanged>false</skipIfSpecIsUnchanged>
                             <skipOperationExample>true</skipOperationExample>
                             <generateSupportingFiles>false</generateSupportingFiles>
-                            <apiPackage>com.prices.inditex.infrastructure.controller</apiPackage>
+                            <apiPackage>com.prices.inditex.application.controller</apiPackage>
                             <modelPackage>com.prices.inditex.domain.model</modelPackage>
                             <typeMappings>
                                 <typeMapping>OffsetDateTime=java.time.LocalDateTime</typeMapping>

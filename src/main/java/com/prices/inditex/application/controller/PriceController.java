@@ -2,7 +2,6 @@ package com.prices.inditex.application.controller;
 
 import com.prices.inditex.domain.model.PriceResponseDTO;
 import com.prices.inditex.application.port.IGetPriceUseCase;
-import com.prices.inditex.infrastructure.controller.PricesApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
