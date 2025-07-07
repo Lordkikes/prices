@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/enriquenavarrocastro/Documents/Pruebas Tecnicas/testPricesInditext/prices/src/main/java/com/prices/inditex</OriginalElement>
+  <nodes>
+    <node x="-104.5" y="-13.5">com.prices.inditex.infrastructure.entity.BrandEntity</node>
+    <node x="1182.5" y="1043.0">com.prices.inditex.application.service.GetPriceUseCaseImpl</node>
+    <node x="1642.5" y="877.5">com.prices.inditex.application.port.IGetPriceUseCase</node>
+    <node x="767.5" y="877.5">com.prices.inditex.domain.repository.PriceRepository</node>
+    <node x="413.0" y="877.5">com.prices.inditex.infrastructure.mapper.PriceMapper</node>
+    <node x="-93.5" y="312.5">com.prices.inditex.infrastructure.entity.PriceEntity</node>
+    <node x="487.5" y="1163.0">com.prices.inditex.infrastructure.repository.PriceRepositoryImpl</node>
+    <node x="165.0" y="29.0">com.prices.inditex.infrastructure.entity.Currency</node>
+    <node x="1451.0" y="1163.0">com.prices.inditex.application.controller.PriceController</node>
+    <node x="1935.0" y="1043.0">com.prices.inditex.PricesApplication</node>
+    <node x="155.0" y="467.0">com.prices.inditex.infrastructure.exception.GlobalExceptionHandler</node>
+    <node x="1375.0" y="877.5">com.prices.inditex.domain.exception.NotFoundException</node>
+    <node x="-116.5" y="877.5">com.prices.inditex.infrastructure.jpa.PriceJpaRepository</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.prices.inditex.infrastructure.repository.PriceRepositoryImpl" target="com.prices.inditex.infrastructure.jpa.PriceJpaRepository" relationship="TO_ONE">
+      <point x="-139.75" y="-44.0" />
+      <point x="627.25" y="1127.0" />
+      <point x="567.0" y="1127.0" />
+      <point x="567.0" y="1107.0" />
+      <point x="127.0" y="1107.0" />
+      <point x="0.0" y="29.5" />
+    </edge>
+    <edge source="com.prices.inditex.infrastructure.entity.PriceEntity" target="com.prices.inditex.infrastructure.entity.BrandEntity" relationship="TO_ONE">
+      <point x="0.0" y="-254.5" />
+      <point x="0.0" y="100.5" />
+    </edge>
+    <edge source="com.prices.inditex.infrastructure.repository.PriceRepositoryImpl" target="com.prices.inditex.infrastructure.mapper.PriceMapper" relationship="TO_ONE">
+      <point x="-139.75" y="-44.0" />
+      <point x="627.25" y="1127.0" />
+      <point x="567.0" y="1127.0" />
+      <point x="0.0" y="29.5" />
+    </edge>
+    <edge source="com.prices.inditex.infrastructure.entity.PriceEntity" target="com.prices.inditex.infrastructure.entity.Currency" relationship="TO_ONE">
+      <point x="0.0" y="-254.5" />
+      <point x="7.0" y="287.0" />
+      <point x="267.0" y="287.0" />
+      <point x="0.0" y="58.0" />
+    </edge>
+    <edge source="com.prices.inditex.application.controller.PriceController" target="com.prices.inditex.application.port.IGetPriceUseCase" relationship="TO_ONE">
+      <point x="0.0" y="-44.0" />
+      <point x="1727.0" y="1027.0" />
+      <point x="2009.25" y="1027.0" />
+      <point x="122.25" y="29.5" />
+    </edge>
+    <edge source="com.prices.inditex.infrastructure.repository.PriceRepositoryImpl" target="com.prices.inditex.domain.repository.PriceRepository" relationship="REALIZATION">
+      <point x="139.75" y="-44.0" />
+      <point x="906.75" y="1127.0" />
+      <point x="907.25" y="1127.0" />
+      <point x="-139.75" y="29.5" />
+    </edge>
+    <edge source="com.prices.inditex.application.service.GetPriceUseCaseImpl" target="com.prices.inditex.domain.repository.PriceRepository" relationship="TO_ONE">
+      <point x="-163.0" y="-44.0" />
+      <point x="1264.0" y="1007.0" />
+      <point x="1186.75" y="1007.0" />
+      <point x="139.75" y="29.5" />
+    </edge>
+    <edge source="com.prices.inditex.application.service.GetPriceUseCaseImpl" target="com.prices.inditex.domain.exception.NotFoundException" relationship="CREATE">
+      <point x="0.0" y="-44.0" />
+      <point x="1427.0" y="1007.0" />
+      <point x="1487.0" y="1007.0" />
+      <point x="0.0" y="29.5" />
+    </edge>
+    <edge source="com.prices.inditex.application.service.GetPriceUseCaseImpl" target="com.prices.inditex.application.port.IGetPriceUseCase" relationship="REALIZATION">
+      <point x="163.0" y="-44.0" />
+      <point x="1590.0" y="1007.0" />
+      <point x="1764.75" y="1007.0" />
+      <point x="-122.25" y="29.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.8884971353018951" showDependencies="true" x="1017.5" y="628.5" />
+  <SelectedNodes>
+    <node>com.prices.inditex.infrastructure.mapper.PriceMapper</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
