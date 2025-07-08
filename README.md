@@ -67,7 +67,7 @@ Preload the H2 in-memory database with the sample data. You may rename fields an
 ## 🏛️ Architecture
 
 A **Hexagonal Architecture (Ports & Adapters)** is used, separating business logic from infrastructure.
-![img_2.png](images/img_2.png)
+![img_2.png](images/hexagonal-architecture.jpg)
 
 ```
 com.prices.inditex
@@ -168,9 +168,12 @@ GET http://localhost:8080/prices?applicationDate=2025-06-14T15:01:00&productId=3
 mvn clean package
 ```
 
-2. Run the application:
+2. ### Running the Project
+
 ```bash
-java -jar target/inditex-app-1.0.0.jar
+./mvnw clean spring-boot:run
+# or
+mvn clean spring-boot:run
 ```
 
 3. Access:
@@ -180,39 +183,7 @@ java -jar target/inditex-app-1.0.0.jar
 
 ---
 
-## 🐳 Docker & Docker Compose
-
-**docker-compose.yml**
-```yaml
-version: "3.8"
-services:
-  app:
-    build: .
-    container_name: inditex-app
-    ports:
-      - "8080:8080"
 ```
-
-**Dockerfile**
-```dockerfile
-FROM openjdk:17-jdk-slim
-WORKDIR /app
-COPY target/inditex-app-1.0.0.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
-```
-
-**Run:**
-```bash
-docker-compose up -d
-```
-
-**Stop:**
-```bash
-docker-compose down
-```
-
----
 
 ## 👤 Author
 
