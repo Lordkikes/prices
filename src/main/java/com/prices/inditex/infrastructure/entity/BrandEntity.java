@@ -1,34 +1,32 @@
 package com.prices.inditex.infrastructure.entity;
 
+import com.prices.inditex.domain.model.Brand;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-/**
- * Entity class representing a Brand in the database.
- * Maps to the "BRAND" table in the database.
- */
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
-@Table(name = "BRAND")
+@Table(name="brands")
 public class BrandEntity {
 
-    /**
-     * The unique identifier of the brand.
-     * Maps to the primary key column in the "BRAND" table.
-     */
     @Id
-    private Integer id;
+    @Column(name="id")
+    private int id;
 
-    /**
-     * The name of the brand.
-     */
+    @Column(name="name")
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "brand")
+    private List<PriceListEntity> priceLists;
+
+    public Brand toDomain() {
+        return new Brand(this.id, this.name);
+    }
+
 }
